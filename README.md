@@ -1,66 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Integração entre Flutter, Laravel e CMS
 
-## About Laravel
+Este documento fornece uma visão geral da integração entre três sistemas principais: Flutter, Laravel e um sistema de gerenciamento de conteúdo (CMS). O objetivo é criar uma aplicação coesa que permita a manipulação de conteúdo (CRUD - criar, ler, atualizar, deletar) através do Flutter, com Laravel agindo como a camada de backend e o CMS fornecendo o conteúdo.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Arquitetura do Sistema
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A arquitetura do projeto é construída em torno da comunicação entre o aplicativo Flutter, o backend Laravel e o CMS. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Flutter**: Framework de UI para criar belas aplicações compiladas nativamente.
+- **Laravel**: Framework PHP para desenvolvimento web que serve como backend.
+- **CMS**: Sistema de Gerenciamento de Conteúdo que armazena e gerencia conteúdo digital.
 
-## Learning Laravel
+## Fluxo de Dados
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Flutter (Frontend)**: O aplicativo feito com Flutter consome dados por meio de APIs RESTful. Ele pode exibir, criar, atualizar e deletar conteúdo no CMS por meio do Laravel.
+2. **Laravel (Backend)**: Atua como uma ponte entre o Flutter e o CMS. Processa as requisições do Flutter, realizando operações de CRUD no CMS conforme necessário.
+3. **CMS**: Armazena o conteúdo que é consumido pelo Flutter através do Laravel. O Laravel acessa o CMS para realizar operações de CRUD baseadas nas ações do usuário no aplicativo Flutter.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Integração
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Flutter para Laravel
 
-## Laravel Sponsors
+- O Flutter faz requisições HTTP para endpoints específicos do Laravel para solicitar ou modificar dados.
+- O Laravel autentica as requisições e executa a lógica de negócios necessária, como buscar dados no CMS ou atualizar o conteúdo.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Laravel para CMS
 
-### Premium Partners
+- Laravel comunica-se com o CMS através de APIs fornecidas pelo CMS.
+- Dependendo da ação solicitada pelo Flutter, o Laravel realizará operações de CRUD no CMS.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Considerações de Segurança
 
-## Contributing
+- Todas as comunicações entre o Flutter, Laravel e o CMS devem ser realizadas sobre HTTPS.
+- Utilize autenticação e autorização (como tokens JWT) para proteger as APIs e validar as requisições.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Implementação
 
-## Code of Conduct
+- **Flutter**: Implemente clientes HTTP para fazer requisições aos endpoints do Laravel.
+- **Laravel**: Crie rotas API, controllers e autenticação para manejar as requisições do Flutter. Configure a integração com o CMS.
+- **CMS**: Dependendo do CMS escolhido, configure as APIs necessárias para permitir que o Laravel realize operações de CRUD.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Conclusão
 
-## Security Vulnerabilities
+A integração entre Flutter, Laravel e um CMS oferece uma solução robusta para aplicações que necessitam de gestão de conteúdo dinâmico. Com essa arquitetura, os desenvolvedores podem aproveitar o melhor de cada sistema para criar aplicações interativas e com conteúdo gerenciável.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
