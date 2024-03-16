@@ -1,5 +1,5 @@
 
-# Flutter, Laravel e CMS
+# Flutter <-> CMS <-> Laravel
 
 Este documento fornece uma visão geral da integração entre três sistemas principais: Flutter, Laravel e um sistema de gerenciamento de conteúdo (CMS). O objetivo é criar uma aplicação coesa que permita a manipulação de conteúdo (CRUD - criar, ler, atualizar, deletar) através do Flutter, com Laravel agindo como a camada de backend e o CMS fornecendo o conteúdo.
 
