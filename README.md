@@ -31,8 +31,8 @@ A arquitetura do projeto é construída em torno da comunicação entre o aplica
 
 ## Considerações de Segurança
 
-- Todas as comunicações entre o Flutter, Laravel e o CMS devem ser realizadas sobre HTTPS.
-- Utilize autenticação e autorização (como tokens JWT) para proteger as APIs e validar as requisições.
+- Todas as comunicações entre o Flutter, Laravel e o CMS serão realizadas sobre HTTPS.
+- Autenticação e autorização (como tokens JWT) para proteger as APIs e validar as requisições.
 
 ## Implementação
 
